@@ -26,3 +26,4 @@ NASA's [ADS](https://ui.adsabs.harvard.edu/) is the best way to find papers. You
 - [An introduction to XMM-Newton data analysis](http://heasarc.gsfc.nasa.gov/docs/xmm/abc/) from NASA HEASARC
 - [The Absolute Beginner's Guide to XMM](https://heasarc.gsfc.nasa.gov/FTP/xmm/docs/The_Absolute_Beginners_guide_to_XMM_v1.pdf) from NASA HEASARC
 - [ABC Guide](https://heasarc.gsfc.nasa.gov/docs/xmm/abc/abc.html) introduction to XMM-Newton data analysis from NASA HEASARC. There is also a [streamlined ABC guide](https://heasarc.gsfc.nasa.gov/docs/xmm/sl/intro.html)
+- [XMM-Newton Reduction Script (Courtesy of Darius Michienzi)](https://github.com/astro-group-bristol/reduction-scripts)

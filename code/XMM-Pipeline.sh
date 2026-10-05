@@ -28,23 +28,19 @@ cd ../PROC
 emproc
 epproc
 
-# ==================================================================================
-# Make a symbolic link for easy command use
-# ==================================================================================
-
-ln -s *_EMOS1_*ImagingEvts.ds mos1.fits
-ln -s *_EMOS2_*ImagingEvts.ds mos2.fits
-ln -s *_EPN_*ImagingEvts.ds pn.fits
+export mos1=$(ls *_EMOS1_*ImagingEvts.ds)
+export mos2=$(ls *_EMOS2_*ImagingEvts.ds)
+export pn=$(ls *_EPN_*ImagingEvts.ds)
 
 # ==================================================================================
 # Apply standard filters
 # ==================================================================================
 
-evselect table=mos1.fits filtertype=expression filteredset=mos1_filt.fits expression='(PATTERN <= 12) && (PI in [200:12000]) && #XMMEA_EM' 
+evselect table=$mos1 filtertype=expression filteredset=mos1_filt.fits expression='(PATTERN <= 12) && (PI in [200:12000]) && #XMMEA_EM' 
 
-evselect table=mos2.fits filtertype=expression filteredset=mos2_filt.fits expression='(PATTERN <= 12) && (PI in [200:12000]) && #XMMEA_EM' 
+evselect table=$mos2 filtertype=expression filteredset=mos2_filt.fits expression='(PATTERN <= 12) && (PI in [200:12000]) && #XMMEA_EM' 
 
-evselect table=pn.fits filtertype=expression filteredset=pn_filt.fits expression='(PATTERN <= 4)&&(PI in [200:15000])&&#XMMEA_EP&&(FLAG == 0)'  
+evselect table=$pn filtertype=expression filteredset=pn_filt.fits expression='(PATTERN <= 4)&&(PI in [200:15000])&&#XMMEA_EP&&(FLAG == 0)'  
 
 # ==================================================================================
 # Make light curves

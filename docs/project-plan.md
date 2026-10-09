@@ -14,6 +14,7 @@ NASA's [ADS](https://ui.adsabs.harvard.edu/) is the best way to find papers. You
 - [An XMM-Newton survey of broad iron lines in Seyfert galaxies](https://ui.adsabs.harvard.edu/abs/2007MNRAS.382..194N/abstract) is an overview of broad iron lines from 2007 so you might want to supplement this with some more modern papers.
 - [A long hard look at MCG-6-30-15 with XMM-Newton](https://ui.adsabs.harvard.edu/abs/2002MNRAS.335L...1F/abstract)
 - [Reflecting on naked singularities: iron line fitting as a probe of the cosmic censorship conjecture](https://ui.adsabs.harvard.edu/abs/2024MNRAS.528.2015M/abstract) (2024) by Mummery and Ingram. We can try to reproduce some of the figures in this paper.
+- [A recent look at MCG-6-30-15 with XMM, XRISM, NuStar](https://iopscience.iop.org/article/10.3847/1538-4357/ae1225)
 
 ## Data
 

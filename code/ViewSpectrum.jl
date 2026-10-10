@@ -62,18 +62,13 @@ end
 
 args = ParseArguments()
 
-obsid = args["OBS_ID"]
-instrument = args["Instrument"]
-indir = args["INDIR"]
-outdir = args["OUTDIR"]
-
 # Loading the data (requires that the spectrum files are grouped)
 data = LoadData(
-    "$(indir)/$(obsid)_$(instrument)_pi_rebinned.fits"
+    "$(args["INDIR"])/$(args["OBS_ID"])_$(args["Instrument"])_pi_rebinned.fits"
 )
 
 # Setting the observation id
-data.user_data.observation_id = obsid
+data.user_data.observation_id = args["OBS_ID"]
 
 # Plotting
 majorticks = collect(2:10)
@@ -87,5 +82,5 @@ plt = plot!(
 
 # Saving the figure
 savefig(
-    plt, "$(outdir)/$(obsid)_$(instrument)_spectrum.png"
+    plt, "$(args["OUTDIR"])/$(args["OBS_ID"])_$(args["Instrument"])_spectrum.png"
 )

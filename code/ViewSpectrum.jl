@@ -33,7 +33,7 @@ function LoadData(
 
     # Regrouping, normalising, dropping bad channels and curtailing
     regroup!(data)
-    normalize!(data)
+    # normalize!(data)
     drop_bad_channels!(data)
     mask_energies!(data, dataRange...)
 end
@@ -55,6 +55,14 @@ function ParseArguments()
         "--OUTDIR"
             help="The output directory"
             default=pwd()
+        "--XLOG"
+            arg_type=Bool
+            help="Whether the x axis should use a log scale"
+            default=true
+        "--YLOG"
+            arg_type=Bool
+            help="Whether the y axis should use a log scale"
+            default=true
     end
 
     return parse_args(ARGS, s)
@@ -63,6 +71,7 @@ end
 args = ParseArguments()
 
 # Loading the data (requires that the spectrum files are grouped)
+println("Loading Data...")
 data = LoadData(
     "$(args["INDIR"])/$(args["OBS_ID"])_$(args["Instrument"])_pi_rebinned.fits"
 )
@@ -73,9 +82,17 @@ data.user_data.observation_id = args["OBS_ID"]
 # Plotting
 majorticks = collect(2:10)
 vline([6.4]; c=:red, ls=:dash, lw=0.7, label=L"Fe K$\alpha$")
+
+if args["XLOG"]
+    xaxis!(:log)
+end
+if args["YLOG"]
+    yaxis!(:log)
+end
+
 plt = plot!(
     data; ylabel=L"Counts (s$^{-1}$ keV$^{-1}$)", 
-    xaxis=:log, yaxis=:log, xticks=(majorticks, majorticks),
+    xticks=(majorticks, majorticks),
     c=:black, markercolor=:black, lc=:black, lw=0.5, msw=0.,
     framestyle=:box, xlims=(minimum(majorticks), maximum(majorticks))
 )
